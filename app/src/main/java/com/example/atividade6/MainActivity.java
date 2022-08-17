@@ -13,7 +13,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerBooks;
     private BookAdapter bookAdapter;
+    private AppDatabase database;
     List<Book> books;
+
+    private List<Book> loadBooksList(){
+        database = AppDatabase.getInstance(this.getApplicationContext());
+        List<Book> books = database.bookDao().getAllBooks();
+
+        return books;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
             add(new Book("1984"));
             add(new Book("Cidade do Sol"));
         }};
+
+        database = AppDatabase.getInstance(this.getApplicationContext());
+//        database.bookDao().insertBook(books.get(0));
+//        books = loadBooksList();
 
         recyclerBooks = findViewById(R.id.recyclerViewBooks);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
