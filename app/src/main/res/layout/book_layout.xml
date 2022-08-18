@@ -50,19 +50,20 @@
         android:id="@+id/textViewRecyclerStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="108dp"
         android:layout_marginRight="108dp"
         android:text="Status:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewBookSetTitle" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewAuthor"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAuthor" />
 
     <TextView
         android:id="@+id/textViewSetStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/textViewRecyclerStatus"
-        app:layout_constraintStart_toEndOf="@+id/textViewRecyclerStatus" />
+        app:layout_constraintStart_toStartOf="@+id/textViewBookSetAuthor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

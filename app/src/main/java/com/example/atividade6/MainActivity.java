@@ -1,5 +1,6 @@
 package com.example.atividade6;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,17 +61,21 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(resultCode == RESULT_OK){
-//            Bundle extras = data.getExtras();
-//            String nome = extras.getString("nome");
-//            String especie = extras.getString("especie");
-//
-//            if(nome.length() > 0 && especie.length() > 0){
-//                createAvistamento(nome, especie);
-//            }
-//        }
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            String title = extras.getString("title");
+            String author = extras.getString("author");
+            String status = extras.getString("status");
+
+            if(title.length() > 0 && title.length() > 0 && author.length() > 0 && author.length() > 0 && status.length() > 0 && status.length() > 0){
+                Book createdBook = new Book(title, author, status);
+                database.bookDao().insertBook(createdBook);
+
+                books = loadBooksList();
+            }
+        }
+    }
 }

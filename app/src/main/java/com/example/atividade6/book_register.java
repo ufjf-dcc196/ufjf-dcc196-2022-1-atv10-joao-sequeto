@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class book_register extends AppCompatActivity {
     private EditText editTextTitle;
@@ -27,18 +28,23 @@ public class book_register extends AppCompatActivity {
     public void finish(View view){
         String status = "";
         Intent cadastro = new Intent();
-        cadastro.putExtra("title", editTextTitle.getText().toString());
-        cadastro.putExtra("author", editTextAuthor.getText().toString());
+
+        String title = editTextTitle.getText().toString();
+        String author = editTextAuthor.getText().toString();
+
+
+        cadastro.putExtra("title", title);
+        cadastro.putExtra("author", author);
 
         switch (radioGroupStatus.getCheckedRadioButtonId()){
             case R.id.radioButtonNotRead:
-                status = "Not Read";
+                status = "Não Lido";
                 break;
             case R.id.radioButtonReading:
-                status = "Reading";
+                status = "Lendo";
                 break;
             case R.id.radioButtonReaded:
-                status = "Readed";
+                status = "Lido";
                 break;
             default:
                 break;
@@ -46,8 +52,15 @@ public class book_register extends AppCompatActivity {
 
         cadastro.putExtra("status", status);
 
-        setResult(RESULT_OK, cadastro);
-        finish();
+        if(title.length() > 0 && title.length() > 0 && author.length() > 0 && author.length() > 0 && status.length() > 0 && status.length() > 0){
+            setResult(RESULT_OK, cadastro);
+            finish();
+        }
+
+        else{
+            Toast.makeText(this, "É necessário informar todos os dados para finalizar cadastro!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void cancel(View view){
