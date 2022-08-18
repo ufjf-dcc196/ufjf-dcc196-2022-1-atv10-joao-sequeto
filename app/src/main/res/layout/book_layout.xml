@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8sp">
+    android:layout_margin="10sp"
+    android:background="#F3F3F3"
+    android:padding="8sp"
+    app:layout_constraintCircleRadius="100dp">
 
     <TextView
         android:id="@+id/textViewBookTitle"
@@ -20,8 +23,8 @@
         android:id="@+id/textViewBookSetTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textViewBookTitle"
         app:layout_constraintTop_toTopOf="@+id/textViewBookTitle" />
@@ -47,8 +50,8 @@
         android:id="@+id/textViewRecyclerStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
-        android:layout_marginRight="144dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
         android:text="Status:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textViewBookSetTitle" />
@@ -57,8 +60,8 @@
         android:id="@+id/textViewSetStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/textViewRecyclerStatus"
         app:layout_constraintStart_toEndOf="@+id/textViewRecyclerStatus" />

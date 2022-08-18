@@ -39,14 +39,20 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
         Book book = books.get(position);
         holder.textViewTitle.setText(book.getTitle());
+        holder.textViewAuthor.setText(book.getAuthor());
+        holder.textViewStatus.setText(book.getStatus());
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder{
         private TextView textViewTitle;
+        private TextView textViewAuthor;
+        private TextView textViewStatus;
         public BookViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textViewTitle = itemView.findViewById(R.id.textViewBookSetTitle);
+            textViewAuthor = itemView.findViewById(R.id.textViewBookSetAuthor);
+            textViewStatus = itemView.findViewById(R.id.textViewSetStatus);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

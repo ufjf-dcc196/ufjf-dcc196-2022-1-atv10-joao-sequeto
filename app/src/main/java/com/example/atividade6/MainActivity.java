@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
             add(new Book("Harry Potter", "J.K.Rowling", "Readed"));
         }};
         database = AppDatabase.getInstance(this.getApplicationContext());
-        database.bookDao().insertBook(books.get(0));
-//        books = loadBooksList();
+//        database.bookDao().insertBook(books.get(0));
+        books = loadBooksList();
 
         recyclerBooks = findViewById(R.id.recyclerViewBooks);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
