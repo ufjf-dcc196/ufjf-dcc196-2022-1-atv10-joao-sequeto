@@ -25,4 +25,41 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textViewBookTitle"
         app:layout_constraintTop_toTopOf="@+id/textViewBookTitle" />
+
+    <TextView
+        android:id="@+id/textViewBookSetAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/textViewBookSetTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewAuthor" />
+
+    <TextView
+        android:id="@+id/textViewAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Autor:"
+        app:layout_constraintStart_toStartOf="@+id/textViewBookTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookTitle" />
+
+    <TextView
+        android:id="@+id/textViewRecyclerStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
+        android:text="Status:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewBookSetTitle" />
+
+    <TextView
+        android:id="@+id/textViewSetStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewRecyclerStatus"
+        app:layout_constraintStart_toEndOf="@+id/textViewRecyclerStatus" />
 </androidx.constraintlayout.widget.ConstraintLayout>

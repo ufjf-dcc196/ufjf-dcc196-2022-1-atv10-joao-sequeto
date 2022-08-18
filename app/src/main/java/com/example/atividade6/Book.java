@@ -12,8 +12,32 @@ public class Book {
     @ColumnInfo(name = "title")
     private String title;
 
-    public Book(String title){
+    @ColumnInfo(name = "author")
+    private String author;
+
+    @ColumnInfo(name = "status")
+    private String status;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Book(String title, String author, String status){
         this.title = title;
+        this.author = author;
+        this.status = status;
     }
 
     public String getTitle(){
