@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerBooks;
     private BookAdapter bookAdapter;
+    private Button addButton;
     private AppDatabase database;
     List<Book> books;
 
@@ -47,4 +50,24 @@ public class MainActivity extends AppCompatActivity {
         bookAdapter = new BookAdapter(books, listener);
         recyclerBooks.setAdapter(bookAdapter);
     }
+
+    public void registerBookClick(View view){
+        Intent intent = new Intent(MainActivity.this, book_register.class);
+        startActivityForResult(intent, 1);
+    };
+
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(resultCode == RESULT_OK){
+//            Bundle extras = data.getExtras();
+//            String nome = extras.getString("nome");
+//            String especie = extras.getString("especie");
+//
+//            if(nome.length() > 0 && especie.length() > 0){
+//                createAvistamento(nome, especie);
+//            }
+//        }
+//    }
 }
