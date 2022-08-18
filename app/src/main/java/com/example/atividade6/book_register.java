@@ -51,6 +51,7 @@ public class book_register extends AppCompatActivity {
         }
 
         cadastro.putExtra("status", status);
+        cadastro.putExtra("activity", "create");
 
         if(title.length() > 0 && title.length() > 0 && author.length() > 0 && author.length() > 0 && status.length() > 0 && status.length() > 0){
             setResult(RESULT_OK, cadastro);

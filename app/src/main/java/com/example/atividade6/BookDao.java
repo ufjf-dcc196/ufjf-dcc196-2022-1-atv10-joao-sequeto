@@ -15,6 +15,9 @@ public interface BookDao {
     @Update
     void saveBook(Book book);
 
+    @Query("SELECT * from Book WHERE id=:id LIMIT 1")
+    Book findById(Long id);
+
     @Query("SELECT * from Book")
     List<Book> getAllBooks();
 }

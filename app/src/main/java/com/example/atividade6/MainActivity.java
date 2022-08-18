@@ -47,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void OnBookClick(View source, int position) {
                 Book book = books.get(position);
+
+                Intent intentUpdate = new Intent(MainActivity.this, update_book.class);
+
+                Long id = book.getId();
+                intentUpdate.putExtra("livroId", id);
+                startActivityForResult(intentUpdate, 1);
+
                 bookAdapter.notifyItemChanged(position);
             }
         };
@@ -66,16 +73,37 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
-            String title = extras.getString("title");
-            String author = extras.getString("author");
-            String status = extras.getString("status");
+            String activity = extras.getString("activity");
 
-            if(title.length() > 0 && title.length() > 0 && author.length() > 0 && author.length() > 0 && status.length() > 0 && status.length() > 0){
-                Book createdBook = new Book(title, author, status);
-                database.bookDao().insertBook(createdBook);
+            if(activity.equals("create")){
+                String title = extras.getString("title");
+                String author = extras.getString("author");
+                String status = extras.getString("status");
 
-                books = loadBooksList();
+                if(title.length() > 0 && title.length() > 0 && author.length() > 0 && author.length() > 0 && status.length() > 0 && status.length() > 0){
+                    Book createdBook = new Book(title, author, status);
+                    database.bookDao().insertBook(createdBook);
+                }
             }
+
+            books = loadBooksList();
+            BookAdapter.OnBookClickListener listener = new BookAdapter.OnBookClickListener() {
+                @Override
+                public void OnBookClick(View source, int position) {
+                    Book book = books.get(position);
+
+                    Intent intentUpdate = new Intent(MainActivity.this, update_book.class);
+
+                    Long id = book.getId();
+                    intentUpdate.putExtra("livroId", id);
+                    startActivityForResult(intentUpdate, 1);
+
+                    bookAdapter.notifyItemChanged(position);
+                }
+            };
+
+            bookAdapter = new BookAdapter(books, listener);
+            recyclerBooks.setAdapter(bookAdapter);
         }
     }
 }
